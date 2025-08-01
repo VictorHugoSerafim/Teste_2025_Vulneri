@@ -4,6 +4,7 @@ const { User } = require("../models");
 
 exports.register = async (req, res) => {
   try {
+    
     const { username, email, password } = req.body;
 
     const existingUser = await User.findOne({ where: { email } });
@@ -15,15 +16,19 @@ exports.register = async (req, res) => {
 
     res.status(201).json({ message: "Usuário registrado com sucesso" });
   } catch (error) {
-    res.status(500).json({ message: "Erro no servidor", error });
+    console.error("Erro ao logar:", error); // isso ajuda no console do terminal
+    res.status(500).json({ message: "Erro no servidor", error: error.message });
   }
+
 };
 
 exports.login = async (req, res) => {
+
   try {
     const { email, password } = req.body;
-
+    
     const user = await User.findOne({ where: { email } });
+
     if (!user)
       return res.status(404).json({ message: "Usuário não encontrado" });
 
@@ -35,6 +40,8 @@ exports.login = async (req, res) => {
 
     res.json({ token, user: { id: user.id, username: user.username, email } });
   } catch (error) {
-    res.status(500).json({ message: "Erro no servidor", error });
+    console.error("Erro ao logar:", error); // isso ajuda no console do terminal
+    res.status(500).json({ message: "Erro no servidor", error: error.message });
   }
+  
 };
