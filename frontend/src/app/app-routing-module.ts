@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Login } from './auth/login/login';
-import { Register } from './auth/register/register';
-import { TaskList } from './tasks/task-list/task-list';
-import { TaskForm } from './tasks/task-form/task-form';
+import { Login } from './pages/login/login';
+import { Register } from './pages/register/register';
+import { TaskList } from './pages/task-list/task-list';
+import { TaskForm } from './pages/task-form/task-form';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [

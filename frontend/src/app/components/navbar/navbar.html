@@ -1,0 +1,17 @@
+<mat-card class="center">
+  <mat-card-title>Navbar</mat-card-title>
+  <mat-card-content>
+    <nav class="bg-blue-600 text-white p-4 flex justify-between items-center">
+        <div class="space-x-4">
+            <button mat-raised-button color="accent" routerLink="/login" *ngIf="!authService.isAuthenticated()" class="iten-nav" >Login</button>
+            <button mat-raised-button color="accent" routerLink="/register" *ngIf="!authService.isAuthenticated()" class="iten-nav" >Register</button>
+
+            <ng-container *ngIf="authService.isAuthenticated()">
+                <button mat-raised-button color="accent" routerLink="/tasks" class="iten-nav" >Task List</button>
+                <button mat-raised-button color="accent" routerLink="/tasks/new" class="iten-nav" >Task Form</button>
+                <button mat-raised-button color="accent" (click)="logout()" class="iten-nav" >Logout</button>
+            </ng-container>
+        </div>
+    </nav>
+  </mat-card-content>
+</mat-card>
