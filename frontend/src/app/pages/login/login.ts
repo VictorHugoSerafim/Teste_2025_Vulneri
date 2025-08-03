@@ -17,6 +17,7 @@ export class Login {
   onSubmit() {
     this.authService.login({ email: this.email, password: this.password }).subscribe({
       next: (res) => {
+        localStorage.setItem('token', res.token);
         this.router.navigate(['/tasks']);
       },
       error: (err) => {

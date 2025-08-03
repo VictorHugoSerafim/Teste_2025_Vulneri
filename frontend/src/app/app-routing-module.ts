@@ -7,7 +7,6 @@ import { TaskForm } from './pages/task-form/task-form';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
   { path: 'tasks', component: TaskList, canActivate: [AuthGuard] },

@@ -1,17 +1,17 @@
-<mat-dialog-content>
+<mat-dialog-content class="center">
   <form [formGroup]="taskForm">
     <mat-form-field appearance="fill">
-      <mat-label>Título</mat-label>
+      <p>Título</p>
       <input matInput formControlName="title">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Descrição</mat-label>
+      <p>Descrição</p>
       <textarea matInput formControlName="description"></textarea>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Status</mat-label>
+      <p>Status</p>
       <mat-select formControlName="status">
         <mat-option value="pendente">Pendente</mat-option>
         <mat-option value="em andamento">Em andamento</mat-option>
@@ -20,7 +20,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Data de Vencimento</mat-label>
+      <p>Data de Vencimento</p>
       <input matInput [matDatepicker]="picker" formControlName="dueDate">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>

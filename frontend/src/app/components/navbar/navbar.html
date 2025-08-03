@@ -5,10 +5,13 @@
         <div class="space-x-4">
             <button mat-raised-button color="accent" routerLink="/login" *ngIf="!authService.isAuthenticated()" class="iten-nav" >Login</button>
             <button mat-raised-button color="accent" routerLink="/register" *ngIf="!authService.isAuthenticated()" class="iten-nav" >Register</button>
+            <button mat-raised-button color="accent" class="iten-nav" *ngIf="!authService.isAuthenticated()" disabled>Task List</button>
+            <button mat-raised-button color="accent" class="iten-nav" *ngIf="!authService.isAuthenticated()" disabled>Logout</button>
 
             <ng-container *ngIf="authService.isAuthenticated()">
+                <button mat-raised-button color="accent" routerLink="/login" class="iten-nav" >Login</button>
+                <button mat-raised-button color="accent" routerLink="/register" class="iten-nav" >Register</button>
                 <button mat-raised-button color="accent" routerLink="/tasks" class="iten-nav" >Task List</button>
-                <button mat-raised-button color="accent" routerLink="/tasks/new" class="iten-nav" >Task Form</button>
                 <button mat-raised-button color="accent" (click)="logout()" class="iten-nav" >Logout</button>
             </ng-container>
         </div>
